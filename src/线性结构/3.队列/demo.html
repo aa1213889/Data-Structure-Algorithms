@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=\, initial-scale=1.0">
+  <title>击鼓传花</title>
+</head>
+
+<body>
+
+  <h3>几个朋友一起玩一个游戏,围成一圈,开始数数,数到某个数字的人自动淘汰.</h3>
+  <h3> 最后剩下的这个人会获得胜利,请问最后剩下的是原来在哪一个位置上的人?</h3>
+  <script src="./Queue.js"></script>
+  <script>
+    const _nameList = ['小a', '小b', '小c', '小d', '小e', '小f', '大g']
+    function gameFun(nameList, num) {
+      const queue = new Queue()
+      for (const name of nameList) {
+        queue.enqueue(name)
+      }
+
+      countName() //开始 数数字
+      function countName() {
+        /**
+        * 1. i 不是num的时候, 把当前名字删除后 加入到队列末尾
+        *  如['小a', '小b', '小c', '小d'] > [ '小b', '小c', '小d','小a'] > [ '小c', '小d','小a','小b']
+        * 2. for循环完后刚好走到num这里 然后queue.dequeue() 删除队列第一个元素
+        * 3. 1、2过程一直递归到队列中还剩一个人
+        */
+        for (let i = 0; i < num - 1; i++) {
+          queue.enqueue(queue.dequeue())
+        }
+        queue.dequeue()
+        if (queue.size() > 1) countName()
+
+      }
+      //打印最后剩下的人是原来人中的第几个人
+      console.log(nameList.indexOf(queue.front()) + 1)
+      //打印剩下的人姓名
+      console.log(queue.toString())
+    }
+    gameFun(_nameList, 6)
+  </script>
+</body>
+
+</html>

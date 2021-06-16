@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>十进制转二进制</title>
+</head>
+
+<body>
+  <h1>十进制转二进制</h1>
+  <input placeholder="请输入十进制数字" id="input"><button id="btn">计算</button>
+  <hr />
+  结果是：<span id="span"></span>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  <script src="./Stack.js"></script>
+  <script>
+
+
+
+    $('#btn').click(function (e) {
+      $("#span").html(dec2bin($("#input").val()))
+    })
+
+    /**
+      * 将十进制转为二进制
+     */
+    function dec2bin(decNum) {
+      const decStack = new Stack()
+
+      while (decNum > 0) {
+        decStack.push(decNum % 2)
+        decNum = Math.floor(decNum / 2)
+      }
+
+      let binaryStr = ''
+      while (!decStack.isEmpty()) {
+        binaryStr += decStack.pop()
+      }
+      return binaryStr
+    }
+  </script>
+</body>
+
+</html>
