@@ -8,48 +8,47 @@
  */
 
 /**
-  * Array.pop()
-  * const arr = ['z','x','c']   
-  * arr.pop() //c
-  * arr 为 ['z','x']
-  */
+ * Array.pop()
+ * const arr = ['z','x','c']
+ * arr.pop() //c
+ * arr 为 ['z','x']
+ */
 
 /**
-  * Array.join()
-  * const arr = ['z','x','c']   
-  * arr.join() //'z,x,c'
-  * arr.join(' ') //'z x c'
-  */
+ * Array.join()
+ * const arr = ['z','x','c']
+ * arr.join() //'z,x,c'
+ * arr.join(' ') //'z x c'
+ */
 class Stack {
   constructor() {
     this.items = [] //栈的属性
   }
 
-  push (element) {
+  push(element) {
     this.items.push(element)
   }
 
-  pop () {
+  pop() {
     return this.items.pop()
   }
 
-  peek () {
+  peek() {
     return this.items[this.items.length - 1]
   }
 
-  isEmpty () {
+  isEmpty() {
     return this.items.length === 0
   }
 
-  size () {
+  size() {
     return this.items.length
   }
 
-  toString () {
+  toString() {
     return this.items.join(' ')
   }
 }
-
 
 const myStack = new Stack()
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=\, initial-scale=1.0">
+  <title>链表</title>
+</head>
+
+<body>
+
+  <script src="./LinkedList.js"></script>
+  <script>
+    const myLinkedList = new LinkedList()
+    myLinkedList.append('a')
+    myLinkedList.append('b')
+    myLinkedList.append('d')
+    console.log(myLinkedList.toString())
+
+    myLinkedList.insert(2, 'c')
+    console.log(myLinkedList.toString())
+
+    console.log(myLinkedList.get(0)) //'a'
+    console.log(myLinkedList.get(3)) //'d'
+
+    console.log(myLinkedList.indexOf('a')) //0
+    console.log(myLinkedList.indexOf('d')) //3
+
+    myLinkedList.update(3, 'dd') //true
+    console.log(myLinkedList.toString())//a b c dd 
+
+    myLinkedList.removeAt(3) //true
+    console.log(myLinkedList.toString())//a b c
+
+    myLinkedList.remove('c') //true
+    console.log(myLinkedList.toString())//a b
+
+    console.log(myLinkedList.size())//2
+    console.log(myLinkedList.isEmpty())//false
+
+
+  </script>
+</body>
+
+</html>

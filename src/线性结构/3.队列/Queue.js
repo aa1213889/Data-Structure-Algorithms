@@ -23,27 +23,27 @@ class Queue {
     this.items = []
   }
 
-  enqueue (element) {
+  enqueue(element) {
     this.items.push(element)
   }
 
-  dequeue () {
+  dequeue() {
     return this.items.shift()
   }
 
-  front () {
+  front() {
     return this.items[0]
   }
 
-  isEmpty () {
+  isEmpty() {
     return this.items.length === 0
   }
 
-  size () {
+  size() {
     return this.items.length
   }
 
-  toString () {
+  toString() {
     return this.items.join(' ')
   }
 }
