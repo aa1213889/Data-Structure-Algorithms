@@ -19,7 +19,7 @@
  * position=length 插入到链表最后一个位置
  * position不是上面的两种情况的话就是插入中间
  * for (let index = 0; index < position; index++) 循环到position位置的节点
- * preNode：要插入的前一个节点的内容
+ * prevNode：要插入的前一个节点的内容
  * curNode：要插入的后一个节点的内容
  */
 
@@ -30,7 +30,7 @@
 
 /**
  * removeAt(position)
- * preNode.next = curNode.next 当前node的前一个节点指向当前元素的后一个节点
+ * prevNode.next = curNode.next 当前node的前一个节点指向当前元素的后一个节点
  */
 class LinkedList {
   constructor() {
@@ -65,16 +65,14 @@ class LinkedList {
     if (position === 0) {
       newNode.next = this.head
       this.head = newNode
-    } else if (position === this.length) {
-      this.append(data)
     } else {
-      let [curNode, preNode] = [this.head, null]
+      let [curNode, prevNode] = [this.head, null]
       for (let index = 0; index < position; index++) {
-        preNode = curNode
+        prevNode = curNode
         curNode = curNode.next
       }
       newNode.next = curNode
-      preNode.next = newNode
+      prevNode.next = newNode
     }
     this.length++
   }
@@ -113,12 +111,12 @@ class LinkedList {
     if (position === 0) {
       this.head = this.head.next
     } else {
-      let [curNode, preNode] = [this.head, null]
+      let [curNode, prevNode] = [this.head, null]
       for (let index = 0; index < position; index++) {
-        preNode = curNode
+        prevNode = curNode
         curNode = curNode.next
       }
-      preNode.next = curNode.next
+      prevNode.next = curNode.next
     }
     this.length--
     return true
