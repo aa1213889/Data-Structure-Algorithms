@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="./Set.js"></script>
+  <script>
+    const set = new Set()
+    set.add('a')
+    set.add('b')
+    set.add('c')
+    console.log(set.values()) //["a", "b", "c"]
+
+    set.remove('c') //true
+    set.remove('c') //false
+    console.log(set.values()) //["a", "b"]
+
+    console.log(set.has('b')) //true
+    console.log(set.size()) //2
+
+    set.clear()
+    console.log(set.size()) //0
+  </script>
+</body>
+
+</html>

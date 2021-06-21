@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="./Set.js"></script>
+  <script>
+    const set1 = new Set()
+    set1.add('a')
+    set1.add('b')
+    set1.add('c')
+
+    const set2 = new Set()
+    set2.add('a')
+    set2.add('b')
+    set2.add('d')
+
+    const set3 = set1.union(set2)
+    console.log(set3.values()) //["a", "b", "c", "d"]
+
+    const set4 = set1.intersection(set2)
+    console.log(set4.values()) //["a", "b"]
+
+    const set5 = set1.difference(set2)
+    console.log(set5.values()) //["c"]
+
+    const setFather = new Set()
+    setFather.add('a')
+    setFather.add('b')
+    setFather.add('c')
+    setFather.add('d')
+    console.log(set1.subSet(setFather)) //true
+    console.log(set1.subSet(set2)) //false
+  </script>
+</body>
+
+</html>
