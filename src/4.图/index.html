@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图</title>
+</head>
+
+<body>
+  <script src="./graph.js"></script>
+  <script>
+    const vertexesArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
+
+    const graph = new Graph()
+
+    //添加顶点
+    vertexesArr.map(item => {
+      graph.addVertex(item)
+    })
+
+    //添加边
+    graph.addEdge('A', 'B')
+    graph.addEdge('A', 'C')
+    graph.addEdge('A', 'D')
+    graph.addEdge('C', 'D')
+    graph.addEdge('C', 'G')
+    graph.addEdge('D', 'G')
+    graph.addEdge('D', 'H')
+    graph.addEdge('B', 'E')
+    graph.addEdge('B', 'F')
+    graph.addEdge('E', 'I')
+
+
+    //输出
+    console.log(graph.toString())
+
+    let result = ''
+    graph.breadthFirstSearch(graph.vertexes[0], (ver) => {
+      result += (ver + ' ')
+    })
+    console.log(result)
+
+
+    result = ''
+    graph.depthFirstSearch(graph.vertexes[0], (ver) => {
+      result += (ver + ' ')
+    })
+    console.log(result)
+  </script>
+
+</body>
+
+</html>
